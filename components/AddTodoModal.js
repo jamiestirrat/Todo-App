@@ -10,6 +10,19 @@ export default class AddTodoModal extends React.Component {
         color: this.backgroundColors[0]
     };
 
+    createTodo = () => {
+        const {name, color} = this.state
+
+        tempData.push({
+            name,
+            color,
+            todos: []
+        })
+
+        this.setState({name: ""})
+        this.props.closeModal();
+    }
+
     renderColors() {
         return this.backgroundColors.map(color => {
             return (
@@ -31,11 +44,12 @@ export default class AddTodoModal extends React.Component {
 
                   <View style={{alignSelf: 'stretch', marginHorizontal: 32}}>
                       <Text style={styles.title}>Create Todo List</Text>
-                      <TextInput style={styles.input} placeholder="List Name?"/>
+                      <TextInput style={styles.input} placeholder="List Name?" onChangeText={text => this.setState({ name: text })}/>
 
                   <View style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: 12 }}>{this.renderColors()}</View>
 
-                  <TouchableOpacity style={[styles.createList, { backgroundColor: this.state.color}]}>
+                  <TouchableOpacity style={[styles.createList, { backgroundColor: this.state.color}]}
+                                            onPress={this.createTodo}>
                       <Text style={styles.buttonText}>Create List</Text>
                   </TouchableOpacity>
                  </View>

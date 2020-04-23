@@ -15,6 +15,9 @@ export default class App extends React.Component {
       this.setState({ modalShown: !this.state.modalShown });
   }
 
+  renderList = list => {
+      return <TodoList list={list}/>
+  }
 
   render() {
     return (
