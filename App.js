@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, FlatList, Modal } from 'react
 import colours from './Colours';
 import { AntDesign } from '@expo/vector-icons';
 import tempData from './TempData';
-import TodoList from './components/TodoComponent';
+import TodoList from './components/TodoList';
 import AddTodoModal from './components/AddTodoModal';
 
 export default class App extends React.Component {
