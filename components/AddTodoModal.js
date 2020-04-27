@@ -13,8 +13,9 @@ state = {
 
 createTodo = () => {
     const {name, color} = this.state
+    let nameLength = this.state.name.length;
 
-    if ({name}.length > 1) {
+    if (nameLength > 0) {
         this.setState({errorState: false})
         tempData.push({
             name,
@@ -25,7 +26,7 @@ createTodo = () => {
         this.setState({name: ""})
         this.props.closeModal();
     } else {
-        ({name}.length === 0)
+        (nameLength === 0)
         this.setState({errorState: true})
     }
 }
